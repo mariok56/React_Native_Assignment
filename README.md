@@ -1,150 +1,200 @@
-React Native Assignment: E‑Commerce & Social App
+# 📱 E-Commerce Social App – React Native Mobile Application
 
-A full‑featured mobile application built with React Native and TypeScript. This project showcases clean architecture, modern state management, API integration, theming and responsive UI. It includes authentication flows, product management (list, add, edit, details), a simple posts feed, profile editing and a dark/light theme toggle.
+**E-Commerce Social App** is a full-featured mobile application built with **React Native** and **TypeScript**.  
+It combines a **social feed** with an **e-commerce product catalogue**, allowing users to browse products, add new ones, view product details, and interact with simple social posts.
 
-⭐ Features
+The project demonstrates:
+- Modern React Native architecture
+- TypeScript best practices
+- Atomic design methodology
+- Form validation with Zod
+- Smooth navigation using React Navigation
+- Responsive UI and reusable components
 
-Authentication – Register, Login, Email verification and Forgot Password flows with form validation (react-hook-form + zod) and API integration.
+---
 
-User Profile – Upload a profile picture (camera & gallery support), view and edit profile information.
+## ✨ Features
 
-Product Catalog
+### 🔐 Authentication
+- Login & Register forms  
+- Input validation using **Zod**  
+- Persistent login state  
+- Error handling + visual feedback  
 
-Infinite scrolling product list with search, filters and sort (price or creation date).
+---
 
-Product details view with rich information.
+### 🛒 Products Module
+- Product list screen  
+- Product details screen  
+- Add product screen (with validation)  
+- Supports form input, image placeholders, pricing fields, etc.  
+- Uses local JSON or mock API for data  
 
-Add and edit products (forms with validation).
+---
 
-Dark/light theme support on every screen.
+### 📨 Social Feed Module
+- Simple feed displaying static posts  
+- Demonstrates component reuse and list rendering  
+- Clean card-based UI  
 
-Posts Feed – Simple social posts tab (placeholder for blog/news feed).
+---
 
-State Management – Uses React Context & Zustand store for authentication state, plus TanStack React Query
- for data fetching, caching and pagination.
+### 🎨 Atomic Design System
+Organized into:
 
-Navigation – Stack and bottom tab navigators via @react-navigation/native and @react-navigation/bottom-tabs.
+- **Atoms** → Button, Input, Text, Card  
+- **Molecules** → ProductCard, FormGroup  
+- **Organisms** → ProductList, AuthForm  
+- **Screens** → Login, Register, Products, ProductDetails, Feed  
 
-API Integration – Axios instance with token storage and authentication via secure storage (see src/lib/axioInstance.ts).
+Ensures scalable, maintainable UI.
 
-Theming & Responsiveness – Custom ThemeContext, dark/light mode toggle, and responsive helper utilities.
+---
 
-Atomic Design – Components organised into atoms, molecules and organisms for scalability and readability.
+### 🧭 Navigation
+Using **React Navigation v6**
 
-🛠 Tech Stack
+- **Stack Navigation** → Auth flow + app flow  
+- **Tab Navigation** → Feed, Products, Profile  
+- Protected screen routing based on login state  
 
-React Native CLI with TypeScript
+---
 
-React Navigation for stack & tab navigation
+### 🎛 State Management
+- Lightweight global state using **Context API**  
+- Hooks for auth, forms, and data operations  
 
-React Hook Form & Zod for forms and validation
+---
 
-TanStack React Query for server state management
+## 📸 Screenshots
 
-Axios for API calls
+> Add your real screenshots inside:  
+> `./assets/screenshots/`
 
-Zustand for client state (auth store)
+### 🔐 Login  
+![Login](./assets/screenshots/login.png)
 
-react-native-safe-area-context for SafeArea support
+### 📝 Register  
+![Register](./assets/screenshots/register.png)
 
-react-native-image-picker for camera/gallery access
+### 🛍️ Product List  
+![Products](./assets/screenshots/products.png)
 
-Tailwind‑like helper functions in utils/responsive.ts for consistent sizing
+### 📦 Product Details  
+![Details](./assets/screenshots/product-details.png)
 
-Dark/Light theme context with custom colours
+### ➕ Add Product  
+![Add](./assets/screenshots/add-product.png)
 
-📲 Screenshots
+### 📨 Feed  
+![Feed](./assets/screenshots/feed.png)
 
-Add screenshots or screen recordings of key flows here (Authentication, Product List & Details, Add/Edit Product, Posts, Profile). Visuals help reviewers understand the UX quickly.
+---
 
-📂 Project Structure
-src/
-├── components/        # atomic design components (atoms, molecules, organisms)
-├── contexts/          # ThemeContext and other providers
-├── hooks/             # Custom hooks (useAuth, useProducts, etc.)
-├── lib/               # API client and helper libraries
-├── navigation/        # Stack & Tab navigators
-├── screens/           # Screen components grouped by feature
-├── services/          # API service functions
-├── store/             # Zustand stores (auth)
-├── types/             # Shared TypeScript types
-└── utils/             # Helpers (responsive sizes, fonts, validation schemas)
+## 🧰 Tech Stack
 
-🚀 Getting Started
-Prerequisites
+### Core
+- **React Native**
+- **TypeScript**
 
-Node.js >= 16 and npm or Yarn
+### UI
+- React Native StyleSheet  
+- Atomic Design Components  
+- Custom theme variables  
+- Icons
 
-React Native development environment (Android Studio / Xcode) set up. Follow the React Native docs
- for detailed instructions.
+### Navigation
+- **React Navigation** (Stack + Tabs)
 
-Installation
+### Forms & Validation
+- **react-hook-form**
+- **zod**
 
-Clone the repository
+### Data
+- Static JSON  
+- Local mock services  
+- AsyncStorage (state persistence)
 
-git clone https://github.com/mariok56/React_Native_Assignment.git
-cd React_Native_Assignment
+### Utilities
+- Helper functions  
+- Validation schemas  
+- Custom hooks  
 
+---
 
-Install dependencies
+## 📂 Project Structure
 
-# using npm
+```
+E-Commerce-Social-App/
+├── src/
+│   ├── assets/            # Images & icons
+│   ├── components/        # Atomic components (atoms, molecules, organisms)
+│   ├── data/              # Product JSON data
+│   ├── hooks/             # Custom hooks
+│   ├── navigation/        # App & Auth navigation stacks
+│   ├── screens/           # Application screens
+│   ├── context/           # Auth & app context
+│   ├── utils/             # Helpers, validation schemas
+│   └── App.tsx            # Entry point of the application
+├── package.json
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Install Dependencies
+```
 npm install
+```
 
-# or using Yarn
-yarn install
-
-
-Start the Metro bundler
-
-# npm
+### 2. Start Metro Bundler
+```
 npm start
-# or yarn
-yarn start
+```
 
-
-Run on Android
-
+### 3. Run on Android
+```
 npm run android
-# or
-yarn android
+```
 
-
-Run on iOS
-
-# install CocoaPods dependencies (only on first run or after native deps change)
-bundle install
-bundle exec pod install
-
+### 4. Run on iOS (Mac only)
+```
 npm run ios
-# or
-yarn ios
+```
 
+---
 
-Configure API
+## 🧑‍💻 Scripts
 
-The app expects a backend API for authentication, products and posts. Update the base URL and endpoints in src/lib/axioInstance.ts and src/services/* to point to your server. For secure authentication, tokens are stored using @react-native-async-storage/async-storage (see src/lib/axioInstance.ts).
+| Command | Description |
+|---------|-------------|
+| **npm start** | Start Metro bundler |
+| **npm run android** | Run on Android device/emulator |
+| **npm run ios** | Run on iOS simulator |
+| **npm run lint** | Run ESLint |
 
-🧪 Testing & Linting
+---
 
-This repo does not include unit tests yet. Consider adding tests with Jest and React Native Testing Library.
+## 🧪 Form Validation (Zod Example)
 
-Run eslint and prettier to ensure code quality.
+```ts
+const productSchema = z.object({
+  title: z.string().min(5),
+  price: z.number().min(1),
+  description: z.string().min(10),
+});
+```
 
-npm run lint    # check for lint errors
-npm run format  # format code with Prettier
+---
 
-🤝 Contributing
+## 📄 License
+This project is for educational and assignment purposes only.
 
-Contributions are welcome! Feel free to open issues or submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
+---
 
-📄 License
-
-This project is released under the MIT License
-. You are free to use, modify and distribute it as long as you include the original license text.
-
-👤 Author
-
-Mario Karam
- – Frontend & Mobile Developer. If you have any questions, please reach out via LinkedIn
- or email.
+## 👤 Author
+**Mario Karam**  
+GitHub: https://github.com/mariok56  
+LinkedIn: https://www.linkedin.com/in/mario-karam-057987341
