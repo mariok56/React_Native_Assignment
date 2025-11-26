@@ -68,9 +68,6 @@ Using **React Navigation v6**
 
 ## 📸 Screenshots
 
-> Add your real screenshots inside:  
-> `./assets/screenshots/`
-
 ### 🔐 Login  
 ![Login](./assets/screenshots/login.png)
 
